@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <title>EasyJet Virtual Crew</title>
+</head>
+<body>
+  <div class="navbar">
+    <a href="../index.html">
+      <img src="virtualgwi.png" alt="Logo">
+    </a>
+  </div>  
+  <div class="filter-section">
+    <div class="form-group">
+      <label for="cityFilter">Filter by City:</label>
+      <input type="text" id="cityFilter">
+    </div>
+    <div class="form-group">
+      <label for="countryFilter">Filter by Country:</label>
+      <input type="text" id="countryFilter">
+    </div>
+  </div>
+  <table id="airportTable">
+    <tr>
+      <th>City</th>
+      <th>Country</th>
+      <th>IATA</th>
+      <th>ICAO</th>
+      <th>Airport</th>
+    </tr>
+  </table>
+  <script src="script.js"></script>
+</body>
+</html>

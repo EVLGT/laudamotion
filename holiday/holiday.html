@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>Pauschaulreisen - EZS Virtual</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="fticrlezs.png" alt="FTI Touristik Logo">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Startseite</a></li>
+                    <li><a href="mailto:dario.krieger@icloud.com?subject=EasyJetVirtual%20Pilot%20Contact&body=Details here">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="booking-form" class="modal-overlay hidden">
+        <div class="modal">
+          <h2>Jetzt buchen</h2>
+          <form action="mailto:dario.krieger@icloud.com" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label for="departure-airport">Abflug:</label>
+                <select id="departure-airport" name="departure-airport">
+                    <option value="basel">EuroAirport Basel Mulhouse Freiburg (BSL/MLH/EAP)</option>
+                    <option value="zurich">Zurich Kloten (ZRH)</option>
+                    <option value="geneva">Geneva (GVA)</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="departure-date">Abflugdatum:</label>
+                <input type="date" id="departure-date" name="departure-date">
+            </div>
+        
+            <div class="form-group">
+                <label for="return-date">Rückkehrdatum:</label>
+                <input type="date" id="return-date" name="return-date">
+            </div>
+
+            <input type="hidden" name="subject" id="email-subject">
+            <input type="hidden" name="body" id="email-body">
+        
+            <div class="button-container">
+                <button type="button" class="generate-button" onclick="closeBookingForm()">Schließen</button>
+                <input type="submit" class="generate-button" value="Buchen">
+            </div>
+        </form>
+        
+        </div>
+      </div>    
+    <section class="hero">
+        <div class="container">
+            <h1>Entdecken Sie die Welt mit Virtual EasyJet Holidays</h1>
+            <p>Unsere besten Reiseangebote warten auf Sie!</p>
+            <p>Disclaimer: Hier können keine echte Ferien gebucht werden! Wir sind nicht mit EasyJet Holidays, FTI Touristik und Coral Travel verbunden.</p>
+            <p>Wir simulieren nur die Ferienbuchung von Pauschalreiseanbietern!</p>
+            <a href="#" class="cta-button">Jetzt entdecken</a>
+        </div>
+    </section>
+    <section class="reisen">
+        <div class="container">
+            <article class="angebot">
+                <img src="pictures/albatroscitadelhurghada.jpg" alt="Albatros Citadel - Hurghada Sahl Hasheesh (Ägypten)">
+                <div class="angebot-info">
+                    <h2>Albatros Citadel - Hurghada Sahl Hasheesh (Ägypten)</h2>
+                    <p>Erleben Sie unvergessliche Tage in Hurghada.</p>
+                    <p>Anflug: Hurghada International Airport (HRG) Terminal 1</p>
+                    <p>Verpflegung: All Inclusive (5*)</p>
+                    <p>Hotel Transfer inklusive + Train2Airport in Basel</p>
+                    <p class="preis">Ab €580 pro Person</p>
+                    <a href="#" class="angebot-button" data-offer="Hurghada" id="buchungs-button-hurghada">Jetzt buchen</a>
+                </div>
+            </article>
+            <article class="angebot">
+                <img src="pictures/oasisrmf.png" alt="PickAlbatros Oasis Port Ghalib - Marsa Alam (Ägypten)">
+                <div class="angebot-info"> 
+                    <h2>PickAlbatros Oasis Port Ghalib - Marsa Alam (Ägypten)</h2>
+                    <p>Tanken Sie Sonnenschein im orientalischen Marsa Alam.</p>
+                    <p>Anflug: Marsa Alam International Airport (RMF) Terminal 1</p>
+                    <p>Verpflegung: All Inclusive (5*)</p>
+                    <p>Hotel Transfer inklusive + Train2Airport in Basel</p>
+                    <p class="preis">Ab €700 pro Person</p>
+                    <a href="#" class="angebot-button" data-offer="MarsaAlam" id="buchungs-button-marsaalam">Jetzt buchen</a>
+                </div>
+            </article>
+            <article class="angebot">
+                <img src="pictures/keramoti.jpg" alt="Keramoti - Kavala (Griechenland)">
+                <div class="angebot-info">
+                    <h2>Keramoti - Kavala (Griechenland)</h2>
+                    <p>Entspannen Sie in der malerischen Umgebung von Keramoti.</p>
+                    <p>Anflug: Kavala Megas Alexandros Airport (KVA) Terminal 1</p>
+                    <p>Verpflegung: Nur Frühstück (3*)</p>
+                    <p>Train2Airport in Basel</p>
+                    <p class="preis">Ab €300 pro Person</p>
+                    <a href="#" class="angebot-button" data-offer="Keramoti" id="buchungs-button-keramoti">Jetzt buchen</a>
+                </div>
+            </article>
+        </div>
+    </section>  
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Virtual EasyJet Holidays</p>
+        </div>
+    </footer>
+    <script>
+        function closeBookingForm() {
+            var bookingForm = document.getElementById("booking-form");
+            bookingForm.style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var form = document.getElementById("booking-form");
+            var subjectInput = form.querySelector('input[name="subject"]');
+            var bodyInput = form.querySelector('input[name="body"]');
+            
+            var emailSubject = document.getElementById("email-subject");
+            var emailBody = document.getElementById("email-body");
+
+            var buchungsButtonHurghada = document.getElementById("buchungs-button-hurghada");
+            var buchungsButtonKeramoti = document.getElementById("buchungs-button-keramoti");
+            var buchungsButtonMarsaAlam = document.getElementById("buchungs-button-marsaalam")
+
+            buchungsButtonHurghada.addEventListener("click", function () {
+                form.style.display = "block";
+                subjectInput.value = "Booking Inquiry for Hurghada";
+                bodyInput.value = "Angebot: Albatros Citadel - Hurghada Sahl Hasheesh (Ägypten)";
+                emailSubject.value = "Booking Inquiry for Hurghada";
+                emailBody.value = "Angebot: Albatros Citadel - Hurghada Sahl Hasheesh (Ägypten)";
+            });
+
+            buchungsButtonMarsaAlam.addEventListener("click", function () {
+                form.style.display = "block";
+                subjectInput.value = "Booking Inquiry for Marsa Alam";
+                bodyInput.value = "Angebot: PickAlbatros Oasis Port Ghalib - Marsa Alam (Ägypten)";
+                emailSubject.value = "Booking Inquiry for Marsa Alam";
+                emailBody.value = "Angebot: PickAlbatros Oasis Port Ghalib - Marsa Alam (Ägypten)";
+            });
+
+            buchungsButtonKeramoti.addEventListener("click", function () {
+                form.style.display = "block";
+                subjectInput.value = "Booking Inquiry for Keramoti";
+                bodyInput.value = "Angebot: Keramoti - Kavala (Griechenland)";
+                emailSubject.value = "Booking Inquiry for Keramoti";
+                emailBody.value = "Angebot: Keramoti - Kavala (Griechenland)";
+            });
+        });
+
+    </script>
+</body>
+</html>
